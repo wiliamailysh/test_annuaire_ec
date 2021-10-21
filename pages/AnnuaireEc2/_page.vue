@@ -8,7 +8,7 @@
 					</div>
 					<div class="columns is-multiline">
 						<div 
-							v-for="(firm, i) in accountingFirms.slice((current - 1) * perPage, current * perPage)" 
+							v-for="(firm, i) in filteredAccountingFirms" 
 							:key="`${firm.ec_name}-${i}`"
 							class="column is-2">
 							<b-button
@@ -38,7 +38,8 @@
             aria-next-label="Next page"
             aria-previous-label="Previous page"
             aria-page-label="Page"
-            aria-current-label="Current page">
+            aria-current-label="Current page"
+						@change="changePagination">
         </b-pagination>
 				</div>
 			</div>
@@ -47,8 +48,12 @@
 </template>
 <script>
 // import { gql } from 'nuxt-graphql-request';
-import accountingFirms from '../const/accountingFirms.json'
+import accountingFirms from '../../const/accountingFirms.json'
 export default {
+	asyncData({ params }) {
+		const filteredAccountingFirms = accountingFirms.slice((params.page - 1) * 100, params.page * 100)
+		return { filteredAccountingFirms }
+	},
 	data() {
 		return {
 			accountingFirms,
@@ -64,13 +69,9 @@ export default {
       nextIcon: 'chevron-right'
 		}
 	},
-	computed: {
-		filteredAccountingFirms() {
-			return this.accountingFirms.slice((this.current - 1) * this.perPage, this.current * this.perPage)
-		}
-	},
 	mounted() {
-		console.log('mounted', JSON.stringify(this.accountingFirms.slice(0,5000)))
+		this.current = this.$route.params.page
+		// console.log('mounted', JSON.stringify(this.accountingFirms.slice(0,5000)))
 		// const transformedEntries = accountingFirms.map(af => {
 		// 	// console.log('name', af.ec_name)
 		// 	return  {
@@ -110,6 +111,12 @@ export default {
 		// });
 		// Format: https://benjaminknofe.com/blog/2017/06/19/minimal-json-for-contentful-import/
 		// console.log('transformedEntries', JSON.stringify(transformedEntries))
+	}, 
+	methods: {
+		changePagination() {
+			// console.log('redirect', this.current)
+			this.$router.push(`/annuaireec2/${this.current}`)
+		}
 	}
 }
 </script>

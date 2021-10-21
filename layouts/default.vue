@@ -60,7 +60,7 @@ export default {
 				 {
           title: 'Expert-Comptable 2',
           icon: 'home',
-					to: "/annuaireec2"
+					to: "/annuaireec2/1"
           // to: { name: 'index' }
         },
         {
