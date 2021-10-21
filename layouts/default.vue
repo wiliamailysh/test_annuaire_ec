@@ -57,6 +57,12 @@ export default {
   data () {
     return {
       items: [
+				 {
+          title: 'Expert-Comptable 2',
+          icon: 'home',
+					to: "/annuaireec2"
+          // to: { name: 'index' }
+        },
         {
           title: 'Expert-Comptable',
           icon: 'home',
