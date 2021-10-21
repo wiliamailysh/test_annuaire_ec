@@ -16,7 +16,7 @@
 							expanded
 							size="is-large"
 							class="my-3">
-							{{ country.name }}
+							Pays: {{ country.name }}
 						</b-button>
 					</div>
 				</div>
