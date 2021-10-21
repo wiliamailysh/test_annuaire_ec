@@ -1,0 +1,38 @@
+{
+  "entries": [
+    {
+      "sys": {
+        "id": "1",
+        "publishedVersion": 1,
+        "contentType": {
+          "sys": {
+            "id": "firm"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Cabinet"
+        },
+        "zipCode": {
+          "en-US": "34070"
+        },
+				"city": {
+          "en-US": "Mtp"
+        },
+        "region": {
+          "en-US": "Occitanie"
+        },
+				"address": {
+          "en-US": "34 bis rue la figairasse"
+        },
+        "phoneNumber": {
+          "en-US": "089999999"
+        },
+				"registrationDate": {
+          "en-US": "2021"
+        }
+      }
+    }
+  ]
+}
