@@ -36,7 +36,7 @@ export default {
 		const query = gql`
 			query {
 				# Change limit to 23000
-  			firmCollection(limit: 1000) {
+  			firmCollection(limit: 10) {
 					total
     			items {
       			name
