@@ -80,14 +80,16 @@ export default {
         /**
          * The client endpoint url
          */
-        endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}`,
+				endpoint: `https://graphql.contentful.com/content/v1/spaces/s4058lawnhg4`,
+				// endpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}`,
         /**
          * Per-client options overrides
          * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
          */
 				options: {
 					headers: {
-						authorization: `Bearer ${process.env.CDA_TOKEN}`
+						authorization: `Bearer 1x1YFGOuuvFr8A5Ce6gtvWHfo3GHud5e40qxaqQtd8c`
+						// authorization: `Bearer ${process.env.CDA_TOKEN}`
 						// 'content-type': 'application/json'
           },
 				},
