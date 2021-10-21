@@ -6,20 +6,40 @@
 					<div class="has-text-centered title is-1">
 						Total: {{ accountingFirms.length }}
 					</div>
-					<div 
-						v-for="(firm, i) in accountingFirms" 
-						:key="`${firm.ec_name}-${i}`">
-						<b-button
-							type="is-primary"
-							tag="router-link"
-							:to="`/ec2/${firm.path}`"
-							expanded
-							size="is-large"
-							class="my-3">
-							{{ firm.ec_name }} - 
-							<strong>{{ firm.path }}</strong>
-						</b-button>
+					<div class="columns is-multiline">
+						<div 
+							v-for="(firm, i) in accountingFirms.slice((current - 1) * perPage, current * perPage)" 
+							:key="`${firm.ec_name}-${i}`"
+							class="column is-2">
+							<b-button
+								type="is-primary"
+								tag="router-link"
+								:to="`/ec2/${firm.path}`"
+								expanded
+								size="is-large"
+								class="my-3">
+								<!-- {{ firm.ec_name }} -  -->
+								<strong>{{ firm.path }}</strong>
+							</b-button>
+						</div>
 					</div>
+					<b-pagination
+						v-model="current"
+            :total="accountingFirms.length"
+            :range-before="rangeBefore"
+            :range-after="rangeAfter"
+            :order="order"
+            :size="size"
+            :simple="isSimple"
+            :rounded="isRounded"
+            :per-page="perPage"
+            :icon-prev="prevIcon"
+            :icon-next="nextIcon"
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
+            aria-current-label="Current page">
+        </b-pagination>
 				</div>
 			</div>
 		</div>
@@ -31,11 +51,26 @@ import accountingFirms from '../const/accountingFirms.json'
 export default {
 	data() {
 		return {
-			accountingFirms
+			accountingFirms,
+      current: 1,
+      perPage: 100,
+      rangeBefore: 3,
+      rangeAfter: 1,
+      order: '',
+      size: '',
+      isSimple: false,
+      isRounded: false,
+      prevIcon: 'chevron-left',
+      nextIcon: 'chevron-right'
+		}
+	},
+	computed: {
+		filteredAccountingFirms() {
+			return this.accountingFirms.slice((this.current - 1) * this.perPage, this.current * this.perPage)
 		}
 	},
 	mounted() {
-		// console.log('mounted', JSON.stringify(accountingFirms))
+		console.log('mounted', JSON.stringify(this.accountingFirms.slice(0,5000)))
 		// const transformedEntries = accountingFirms.map(af => {
 		// 	// console.log('name', af.ec_name)
 		// 	return  {
