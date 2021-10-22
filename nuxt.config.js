@@ -1,4 +1,5 @@
-import { gql } from 'nuxt-graphql-request';
+// import { gql } from 'nuxt-graphql-request';
+import accountingFirms from './const/accountingFirms.json'
 
 export default {
 	publicRuntimeConfig: {},
@@ -32,6 +33,16 @@ export default {
 	// 		})
 	// 	}
 	// },
+	generate: {
+		routes() {
+			return accountingFirms.map((firm) => {
+				return {
+					route: `/ec/${firm.path}`,
+					payload: firm
+				}
+			})
+		}
+	},
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
