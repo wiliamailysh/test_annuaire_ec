@@ -3,41 +3,11 @@ import accountingFirms from './const/accountingFirms.json'
 
 export default {
 	publicRuntimeConfig: {},
-	// generate: {
-	// 	routes() {
-	// 		const query = gql`
-	// 		query {
-	// 			# Change limit to 23000
-  // 			firmCollection(limit: 1000) {
-	// 				total
-  //   			items {
-  //     			name
-  //     			zipCode
-  //     			address
-  //     			region
-  //     			registrationDate
-  //     			phoneNumber
-	// 					sys {
-  //       			id
-  //     			}
-  //   			}
-  // 			}
-	// 		}`
-	// 		return $graphql.default.request(query).then((res) => {
-	// 			return res.data.map((firm) => {
-	// 				return {
-	// 					route: `/ec/${firm.sys.id}`,
-	// 					payload: firm
-	// 				}
-	// 			})
-	// 		})
-	// 	}
-	// },
 	generate: {
 		routes() {
 			return accountingFirms.map((firm) => {
 				return {
-					route: `/ec/${firm.path}`,
+					route: `/ec2/${firm.path}`,
 					payload: firm
 				}
 			})
