@@ -4,7 +4,7 @@
 			<div class="card">
 				<div class="card-content">
 					<div class="has-text-centered title is-1">
-						Total: {{ accountingFirms.length }}
+						Total: {{ accountingFirms.length }} !
 					</div>
 					<div class="columns is-multiline">
 						<div 
