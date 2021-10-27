@@ -6,8 +6,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options= "nosniff"
     Strict-Transport-Security = "max-age=31556952; includeSubDomains; preload"
+[[headers]]
 	for = "/_nuxt/*"
 	[headers.values]
-		Cache-Control = "max-age=365000000"
-  	Cache-Control = "immutable"
-	
+		cache-control = '''
+		max-age=365000000,
+		immutable'''
