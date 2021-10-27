@@ -1,0 +1,13 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options= "nosniff"
+    Strict-Transport-Security = "max-age=31556952; includeSubDomains; preload"
+	for = "/_nuxt/*"
+	[headers.values]
+		Cache-Control: max-age=365000000
+  	Cache-Control: immutable
+	
