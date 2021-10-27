@@ -11,7 +11,7 @@
 							v-for="(firm, i) in filteredAccountingFirms" 
 							:key="`${firm.ec_name}-${i}`"
 							class="column is-2">
-							<b-button
+							<!-- <b-button
 								type="is-primary"
 								tag="router-link"
 								:to="`/ec2/${firm.path}`"
@@ -19,8 +19,8 @@
 								size="is-large"
 								class="my-3">
 								<!-- {{ firm.ec_name }} -  -->
-								<strong>{{ firm.path }}</strong>
-							</b-button>
+								<!-- <strong>{{ firm.path }}</strong> -->
+							</b-button> -->
 						</div>
 					</div>
 					<b-pagination
